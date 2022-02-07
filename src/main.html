@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('./html-modules/head/_head.html',{
+"title":"Заголовок"
+})
+
+<body>
+    <div class="wrapper">
+        @@include('./html-modules/header/_header.html')
+
+        <main class="page">
+            <div class="test">
+                <div class="submenu">
+                    <p>цвет</p>
+                    <div class="submenu__test">ебаный</div>
+                </div>
+            </div>
+            <section class="intro">
+                <div class="intro-ticker js-ticker" data-ticker-speed="30000">
+                    <ul>
+                        <li>&nbsp;Lorem &nbsp; Lorem &nbsp; Lorem &nbsp; Lorem &nbsp; Lorem &nbsp; Lorem &nbsp; Lorem &nbsp; Lorem &nbsp; Lorem &nbsp; Lorem &nbsp; Lorem &nbsp; Lorem &nbsp; Lorem &nbsp; Lorem &nbsp; Lorem &nbsp; Lorem &nbsp;</li>
+                    </ul>
+                </div>
+                <div class="intro-ticker js-ticker" data-ticker-speed="30000" data-ticker-reverse>
+                    <ul>
+                        <li>&nbsp;Lorem &nbsp; Lorem &nbsp; Lorem &nbsp; Lorem &nbsp; Lorem &nbsp; Lorem &nbsp; Lorem &nbsp; Lorem &nbsp; Lorem &nbsp; Lorem &nbsp; Lorem &nbsp; Lorem &nbsp; Lorem &nbsp; Lorem &nbsp; Lorem &nbsp; Lorem &nbsp;</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="test-section"></section>
+        </main>
+
+        @@include('./html-modules/footer/_footer.html')
+    </div>
+
+    @@include('./html-modules/popups/_callback-popup.html')
+    @@include('./html-modules/popups/_universal-form.html')
+
+    <script src="js/vendor.min.js"></script>
+    <script src="js/main.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,97 @@
+.mainscreen
+    &__body
+        padding: 0 0 45px 0
+        display: grid
+        grid-gap: 30px
+        // grid-template-columns: repeat(auto-fit,minmax(320px, 1fr))
+        grid-template-columns: repeat(4, 1fr)
+        grid-template-rows: auto 1fr
+        > div
+            // border: solid 1px #000
+        @media (max-width: 1280px)
+            grid-gap: 15px
+
+    &__banner
+        height: 80px
+        grid-column: span 3
+        border: solid 1px #000
+    &__side
+        grid-row: span 2
+        max-height: 571px
+        padding: 20px 11px 20px 24px
+        display: flex
+        flex-direction: column
+        &-title
+            font-size: 24px
+            margin: 0 0 15px 0
+        &-body
+            overflow: auto
+            scrollbar-width: thin
+            scrollbar-color: #E8E7E7 transparent
+            &::-webkit-scrollbar
+                width: 5px
+            &::-webkit-scrollbar-track
+                background: transparent
+            &::-webkit-scrollbar-thumb
+                background: #E8E7E7
+                border-radius: 5px
+                border: solid 3px #E8E7E7
+        &-item
+            height: 300px
+    &__slider
+        grid-column: span 3
+        border: solid 1px #000
+    &__column
+        min-height: 400px
+    &__label
+        grid-column: span 2
+        background: #F5F5F5
+        border-radius: 4px
+    &__btn
+        display: inline-flex
+        justify-content: center
+        align-items: center
+        padding: 0 15px
+        min-width: 240px
+        height: 48px
+        color: #2E4EA4
+        font-weight: bold
+        font-size: 16px
+        border: 1px solid #E8E7E7
+        border-radius: 4px
+.column-mainscreen
+    &__image
+        border-radius: 4px
+        overflow: hidden
+        position: relative
+        padding: 0 0 212px / 320px * 100% 0
+        margin: 0 0 20px 0
+        img
+            position: absolute
+            top: 0
+            left: 0
+            width: 100%
+            height: 100%
+            object-fit: cover
+    &__title
+        margin: 0 0 10px 0
+        font-size: 24px
+        color: #000000
+        line-height: 130%
+        @media (max-width: 1250px)
+            font-size: 18px
+
+    &__text
+        font-size: 16px
+        margin: 0 0 10px 0
+        color: #4F4F4F
+        line-height: 149%
+    &__date
+        font-size: 12px
+        color: #8E8E8E
+
+.btn-wrapper
+    display: flex
+    justify-content: center
+
+.test

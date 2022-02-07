@@ -1,0 +1,73 @@
+{
+	"name": "antresolrec",
+	"version": "1.0.0",
+	"description": "template",
+	"main": "index.js",
+	"scripts": {
+		"dev": "gulp",
+		"prod": "gulp build --prod",
+		"optim": "gulp zimg"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/Antresolrec"
+	},
+	"author": "Dmitry Khrisulidi",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/Antresolrec"
+	},
+	"homepage": "https://github.com/Antresolrec",
+	"browserslist": [
+		"last 2 versions",
+		"safari 8",
+		"ie 11"
+	],
+	"devDependencies": {
+		"@babel/core": "^7.6.0",
+		"@babel/preset-env": "^7.6.0",
+		"@popperjs/core": "^2.4.4",
+		"axios": "^0.19.2",
+		"babel-loader": "^8.0.6",
+		"browser-sync": "^2.26.7",
+		"core-js": "^3.6.5",
+		"del": "^5.1.0",
+		"flatpickr": "^4.6.3",
+		"glightbox": "^3.0.5",
+		"gulp": "^4.0.2",
+		"gulp-autoprefixer": "^7.0.0",
+		"gulp-concat-css": "^3.1.0",
+		"gulp-csso": "^4.0.1",
+		"gulp-file-include": "^2.2.2",
+		"gulp-group-css-media-queries": "^1.2.2",
+		"gulp-html-beautify": "^1.0.1",
+		"gulp-imagemin": "^6.1.0",
+		"gulp-rename": "^1.4.0",
+		"gulp-replace": "^1.0.0",
+		"gulp-sass": "^4.0.2",
+		"gulp-sass-glob": "^1.1.0",
+		"gulp-sourcemaps": "^2.6.5",
+		"gulp-ttf2woff": "^1.1.1",
+		"gulp-ttf2woff2": "^3.0.0",
+		"gulp-webp-html": "^1.0.2",
+		"headroom.js": "^0.11.0",
+		"imagemin-jpeg-recompress": "^6.0.0",
+		"imagemin-pngquant": "^8.0.0",
+		"js": "^0.1.0",
+		"moment": "^2.24.0",
+		"node-sass": "^4.12.0",
+		"nouislider": "^14.7.0",
+		"swiper": "^5.4.2",
+		"tippy.js": "^6.2.6",
+		"vue": "^2.6.11",
+		"vue-loader": "^15.9.3",
+		"vue-multiselect": "^2.1.6",
+		"vue-select": "^3.10.8",
+		"vue-template-compiler": "^2.6.11",
+		"webpack": "^4.39.3",
+		"wnumb": "^1.2.0",
+		"scrollmagic": "^2.0.8",
+		"slim-select": "^1.27.0",
+		"number-flip": "^1.1.10"
+	}
+}

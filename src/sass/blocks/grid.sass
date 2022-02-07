@@ -1,0 +1,77 @@
+// .grid
+//     padding: 50px 0
+//     &__title
+//         font-size: 40px
+//         text-align: center
+//         margin: 0 0 25px 0
+//     &__body
+//         display: grid
+
+//         // одинаковая высота у колонок
+//         // grid-auto-rows: 1fr
+
+//         // заполнение всего ряда, минималка 280пх
+//         grid-template-columns: repeat(auto-fit,minmax(280px, 1fr))
+
+//         // отступ внутри грида по кругу элементов
+//         gap: 15px
+//     &__item
+//         border: solid 1px #000
+//         display: inline-grid
+//         gap: 10px
+
+//         // 2 ряда, второй увеличивается. 2 колонки, первая авто ( задать ширину иконке), вторая увеличиваеся
+//         grid-template: auto 1fr / auto 1fr
+//         padding: 15px 20px
+//         align-items: start
+//     &__icon
+//         // присваиваем иконке 2 ряда
+//         grid-row: span 2
+//         width: 50px
+//         height: 50px
+//         background-color: red
+//     &__subtitle
+//         font-size: 20px
+//         grid-column: span 2
+//     &__btn
+//         grid-column: span 3
+//         height: 40px
+//         max-width: 100%
+//         width: 100%
+//         justify-content: center
+//         align-items: center
+//         display: inline-flex
+//         border: solid 1px red
+
+// .wrapper
+//     min-height: 100vh
+//     display: grid
+//     grid-template-columns: 100px 1fr
+//     grid-template-rows: auto 1fr auto
+//     grid-template-areas: 'sidebar header' 'sidebar content' 'sidebar footer'
+// .header
+//     grid-area: header
+//     background-color: #353436
+//     height: 100px
+// .side
+//     grid-area: sidebar
+//     background-color: #8EA268
+//     &__wrapper
+//         position: fixed
+//         height: 100%
+//         width: 100px
+// .page
+//     grid-area: content
+//     display: grid
+//     grid-template-columns: 1fr 200px
+//     &__side
+//         align-self: start
+//         position: sticky
+//         top: 100px
+//         right: 0
+//         padding: 20px 0 0 0
+//         border-left: solid 1px #000
+// .footer
+//     background-color: #8EA268
+//     grid-area: footer
+//     min-height: 100px

@@ -1,0 +1,99 @@
+/*Обнуление*/
+*
+	padding: 0
+	margin: 0
+	border: 0
+
+*,
+*:before,
+*:after
+	-moz-box-sizing: border-box
+	-webkit-box-sizing: border-box
+	box-sizing: border-box
+
+*:focus,
+*:active
+	outline: none
+
+a:focus,
+a:active
+	outline: none
+
+nav,
+footer,
+header,
+aside
+	display: block
+
+html
+	font-size: 10px
+
+	@media (max-width: 374px)
+		font-size: 8.75px
+
+		scroll-behavior: smooth
+	@media screen and (prefers-reduced-motion: reduce)
+		html
+			scroll-behavior: auto
+html,
+body
+	min-width: 320px
+	height: 100%
+
+body
+	// -ms-text-size-adjust: 100%
+	// -moz-text-size-adjust: 100%
+	// -webkit-text-size-adjust: 100%
+    -moz-osx-font-smoothing: grayscale
+    -webkit-font-smoothing: antialiased
+    -webkit-text-size-adjust: none // иначе iphone начинает увеличивать шрифты
+	font-feature-settings: "kern" 1, "liga" 1, "calt" 1, "pnum" 1, "tnum" 0, "onum" 0, "lnum" 0, "dlig" 0
+
+input,
+button,
+textarea
+	font-family: inherit
+
+input::-ms-clear
+	display: none
+
+button
+	cursor: pointer
+	font-weight: inherit
+	font-size: inherit
+	cursor: pointer
+
+button::-moz-focus-inner
+	padding: 0
+	border: 0
+
+a
+	color: inherit
+
+a,
+a:visited
+	text-decoration: none
+
+a:hover
+	text-decoration: none
+
+ul li
+	list-style: none
+
+img
+	vertical-align: top
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+	font-size: inherit
+	font-weight: inherit
+
+body._lock
+	overflow: hidden
+
+body.lock-popup
+	overflow: hidden

@@ -1,0 +1,63 @@
+.swiper
+	&-container
+		overflow: hidden
+
+	&-wrapper
+		width: 100%
+		height: 100%
+		box-sizing: content-box
+		display: flex
+		position: relative
+
+	&-slide
+
+
+	&-container-vertical
+
+		&-wrapper
+		flex-direction: column
+
+
+	&-container-autoheight
+
+		&-wrapper
+		align-items: flex-start
+
+
+	&-container-initialized
+
+		&-slide
+		flex-shrink: 0
+		// transition-property: transform;
+
+
+	&-container-android
+
+		&-slide,
+
+		&-wrapper
+		transform: translate3d(0px, 0, 0)
+
+
+	&-button-lock
+		display: none !important
+
+
+	&-pagination-fraction
+		margin: 0 15px
+		font-weight: 800
+		font-size: 24px
+		color: #1f60d1
+		min-width: 70px
+		text-align: center
+
+		&-pagination-total
+		opacity: 0.5
+
+
+	&-container-pointer-events.swiper-container-vertical
+		touch-action: pan-x
+
+
+	&-container-vertical.swiper-container-css-mode > .swiper-wrapper
+		scroll-snap-type: y mandatory

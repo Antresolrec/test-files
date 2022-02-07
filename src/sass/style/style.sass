@@ -1,0 +1,258 @@
+body
+    font-family: $ff-default
+    color: $default-color
+    font-weight: 400
+    line-height: 1
+    background-color: $bg-color
+    font-size: 1.6rem
+
+    @media (min-width: 375px)
+        font-size: 1.6rem
+
+    @media (min-width: 768px)
+        font-size: 2rem
+
+//=======================================================
+
+.wrapper
+    width: 100%
+    min-height: 100%
+    overflow: hidden
+    display: flex
+    flex-direction: column
+    opacity: 0
+    transition: opacity 0.3s
+    &._loaded
+        opacity: 1
+
+//=======================================================
+
+.container
+    max-width: 156rem
+    margin: 0 auto
+    padding: 0 2rem
+    position: relative
+    z-index: 1
+
+    @media (min-width: 375px)
+        padding: 0 3rem
+
+    @media (min-width: 768px)
+        padding: 0 4rem
+
+    @media (min-width: 1024px)
+        padding: 0 6rem
+
+//=======================================================
+
+.page
+    flex: 1 1 auto
+
+
+.item-response
+    img,svg
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+
+
+.js-padding
+    padding: 11rem 0 0 0
+    @media (min-width: 768px)
+        padding: 13.4rem 0 0 0
+
+
+.visually-hidden
+    position: absolute !important
+    clip: rect(1px 1px 1px 1px)
+    clip: rect(1px, 1px, 1px, 1px)
+    padding: 0 !important
+    border: 0 !important
+    height: 1px !important
+    width: 1px !important
+    overflow: hidden
+
+//=======================================================
+
+.ie-fix
+    position: fixed
+    width: 100%
+    height: 100%
+    top: 0
+    left: 0
+    &:before
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        background-color: #000
+        z-index: 999
+        content: "БРАУЗЕР УСТАРЕЛ, ПОПРОБУЙТЕ ЛЮБОЙ ДРУГОЙ БРАУЗЕР"
+        color: #fff
+        display: flex
+        justify-content: center
+        align-items: center
+        font-size: 18px
+
+//=======================================================
+
+//=======================================================
+
+._tabs-wrapper
+    position: relative
+
+._tabs-item
+    cursor: pointer
+
+._tabs-block
+    height: 0
+    transform: translate(25%, 0)
+    transition: height 0.6s, transform 0.6s ease, visibility 0.6s, opacity 0.6s
+    visibility: hidden
+    opacity: 0
+    position: absolute
+    top: 0
+    z-index: 4
+
+    &._active
+        z-index: 5
+        transform: translate(0, 0)
+        top: 0
+        position: relative
+        opacity: 1
+        visibility: visible
+        transform: scale(1)
+        transition: position 0.5s 0.1s, transform 1s 0.1s ease, visibility 0.1s 0.1s, opacity 1s 0.1s
+        height: auto
+
+._tabs
+    &__block
+        display: none
+        &._open
+            display: block
+
+
+    &-second
+    &__block
+        display: none
+        &._open
+            display: block
+
+//=======================================================
+
+.btn-wrapper
+    display: flex
+    justify-content: center
+
+._btn
+    height: 50px
+    max-width: 340px
+    width: 100%
+    padding: 0 10px
+    display: inline-flex
+    align-items: center
+    justify-content: center
+    position: relative
+    overflow: hidden
+    color: #fff
+    white-space: nowrap
+    transition: color 0.5s
+    @media (max-width: 479px)
+        max-width: 100%
+
+    &:before
+        content: ''
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        height: 100%
+        z-index: -1
+        background: blue
+
+    @media (any-hover: hover)
+        &:hover
+            color: #fff
+            span
+                width: 750px
+                height: 750px
+
+            svg
+                transform: translate(5px, 0)
+                path
+                    fill: #fff
+
+    span
+        position: absolute
+        display: block
+        width: 0
+        height: 0
+        border-radius: 50%
+        background-color: #053a97
+        transition: width 0.5s, height 0.5s
+        transform: translate(-50%, -50%)
+        z-index: -1
+
+    svg
+        flex-shrink: 0
+        position: relative
+        z-index: 2
+        transition: transform 0.7s
+        path
+            transition: fill 0.7s
+
+    &:active
+        transform: translateY(0.2rem)
+
+//=======================================================
+
+//=======================================================
+
+.back-to-top
+    position: fixed
+    right: -60px
+    background: rgba(31, 96, 209, 1)
+    border-radius: 50%
+    bottom: 15px
+    width: 50px
+    height: 50px
+    display: flex
+    justify-content: center
+    align-items: center
+    z-index: 8
+    visibility: hidden
+    transition: right 0.7s, visibility 0.7s, background 0.7s
+    &:before
+        content: ""
+        width: 14px
+        height: 14px
+        border: solid #fff
+        border-radius: 3px
+        border-width: 3px 3px 0 0
+        transform: rotate(-45deg)
+        position: relative
+        top: 3px
+
+    @media (max-width: 1024px)
+        bottom: 20px
+
+    @media (max-width: 768px)
+        display: none
+
+    @media (min-width: 1025px)
+        background: rgba(31, 96, 209, 0.5)
+        &:hover
+            background: rgba(31, 96, 209, 1)
+
+    &:active
+        &:before
+            top: 2px
+
+    &._show
+        visibility: visible
+        right: 5px
+
+//=======================================================
