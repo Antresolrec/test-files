@@ -15,10 +15,10 @@ if (isMobile.any()) {
 
 const subMenu = document.querySelectorAll('.submenu > p');
 subMenu.forEach((el) => {
-  el.addEventListener('mouseenter', () => {
+  el.addEventListener('mouseover', () => {
     el.parentNode.classList.add('js-submenu-open');
   });
-  el.parentNode.addEventListener('mouseleave', () => {
+  el.parentNode.addEventListener('mouseout', () => {
     el.parentNode.classList.remove('js-submenu-open');
   });
 });
