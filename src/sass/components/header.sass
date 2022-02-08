@@ -1,73 +1,822 @@
 .header
-    position: fixed;
+    height: 10rem
+    position: relative
+    &__wrapper
+        background-color: $colorBlack
+        color: $colorWhite
+        position: fixed
+        top: 0
+        left: 0
+        width: 100%
+        z-index: 9
+        &.js-header-scroll
+            .header__body
+                @media (min-width: 1024px)
+                    height: 8rem
+    &__body
+        display: flex
+        align-items: center
+        height: 10rem
+        transition: height .25s
+        @media (max-width: 1023px)
+            height: 5.6rem
+        @media (max-width: 364px)
+            margin: 0 -1rem
+        &:before
+            content: ''
+            position: fixed
+            top: 0
+            left: 0
+            width: 100%
+            height: 8rem
+            background-color: $colorBlack
+            z-index: 2
+            @media (max-width: 1023px)
+                height: 5rem
+        &.js-menu-open
+            &:before
+                @media (max-width: 574px)
+                    z-index: 7
+    &__logo
+        margin: 0 5.3rem 0 0
+        width: 13.9rem
+        flex-shrink: 0
+        align-self: center
+        position: relative
+        z-index: 7
+        transition: opacity .25s
+        @media (max-width: 1023px)
+            margin: 0 4.1rem 0 0
+            width: 10.1rem
+        @media (max-width: 479px)
+            margin: 0 2.4rem 0 0
+        @media (max-width: 364px)
+            width: 8.6rem
+        @media (any-hover: hover)
+            &:hover
+                opacity: 0.75
+        &:active
+            opacity: 0.75
+            transition: opacity .15s
+        img,svg
+            width: 100%
+    &__nav
+        z-index: 4
+        // position: static
+        transition: width 1s
+        width: 100%
+        @media (max-width: 480px)
+            display: none
+        &.js-nav-hidden
+            width: 0
+            overflow: hidden
+            pointer-events: none
+    &__list
+        display: flex
+        gap: 3.2rem
+        a
+            position: relative
+            transition: opacity .15s
+            &:active
+                opacity: 0.75
+            &::after
+                content: ''
+                position: absolute
+                bottom: -0.2rem
+                left: 0
+                width: 100%
+                height: .1rem
+                background: $colorWhite
+                transform: scaleX(0)
+                transition: .25s transform
+                pointer-events: none
+            @media (any-hover: hover)
+                &:hover
+                    &::after
+                        transform: scaleX(1)
+        >li
+            flex-shrink: 0
+            >a
+                white-space: nowrap
+                font-size: 1.4rem
+                text-transform: uppercase
+                line-height: 1.3
+                position: relative
+                z-index: 2
+                @media (max-width: 1023px)
+                    font-size: 1.3rem
+                &:after
+                    bottom: -1.2rem
+    &__actions
+        display: flex
+        gap: 3.2rem
+        position: relative
+        z-index: 4
+        height: 2.4rem
+        @media (max-width: 1023px)
+            gap: 2.4rem
+        @media (max-width: 574px)
+            height: 2.2rem
+        &-count
+            z-index: 2
+            a
+                position: relative
+                @media (any-hover: hover)
+                    &:hover
+                        span
+                            transform: translateY(-2px)
+                span
+                    position: absolute !important
+                    top: -1.1rem
+                    right: -1.8rem
+                    border-radius: 2rem
+                    background-color: $colorRed
+                    height: 2.5rem
+                    min-width: 2.5rem
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    font-weight: 500
+                    font-size: 1.4rem
+                    padding: 0 0.6rem
+                    z-index: 2
+                    border: 0.2rem solid $colorBlack
+                    transition: transform .25s
+                    &:after
+                        display: none
+                    @media (max-width: 479px)
+                        font-size: 1.2rem
+                img,svg
+                    width: 2.4rem
+                    height: 2.4rem
+                    z-index: 1
+                    position: relative
+
+                    @media (max-width: 574px)
+                        width: 2.2rem
+                        height: 2.2rem
+    &__user
+        &.submenu:not(.submenu--big)
+            .submenu__wrapper
+                @media (max-width: 1023px)
+                    padding: 5rem 0 3rem
+                ul
+                    @media (max-width: 479px)
+                        &:before
+                            left: -2rem
+                            width: calc(100% + 4rem)
+                li
+                    @media (max-width: 479px)
+                        margin: 0 0 1.5rem 0
+        > a
+            display: flex
+            align-items: center
+            gap: 1rem
+            position: relative
+            z-index: 2
+            transition: opacity .15s
+            &:active
+                opacity: 0.75
+            @media (any-hover: hover)
+                &:hover
+                    img,svg
+                        opacity: 0.75
+            img,svg
+                width: 2.4rem
+                height: 2.4rem
+                transition: opacity .25s
+
+                @media (max-width: 574px)
+                    width: 2.2rem
+                    height: 2.2rem
+            span
+                max-width: 11rem
+                overflow: hidden
+                text-overflow: ellipsis
+                text-transform: uppercase
+                font-size: 1.4rem
+
+                @media (max-width: 1023px)
+                    display: none
+        &-exit
+            position: relative
+            z-index: 2
+            align-self: flex-start
+            flex-shrink: 0
+            a
+                width: 2.4rem
+                height: 2.4rem
+                @media (any-hover: hover)
+                    &:hover
+                        svg
+                            path
+                                fill: $colorWhite
+                svg
+                    width: 100%
+                    height: 100%
+                    path
+                        transition: fill .25s
+        .submenu
+            &__wrapper
+                left: auto
+                right: 0
+                display: flex
+                gap: 0.8rem
+                ul
+                    a
+                        text-transform: uppercase
+                        font-weight: 500 !important
+                        position: relative
+                        font-size: 1.4rem
+                        white-space: nowrap
+                        transition: opacity .15s
+                        &:active
+                            opacity: 0.75
+                        &::after
+                            content: ''
+                            position: absolute
+                            bottom: -2px
+                            left: 0
+                            width: 100%
+                            height: .1rem
+                            background: $colorWhite
+                            transform: scaleX(0)
+                            transition: .25s transform
+                            pointer-events: none
+                        @media (max-width: 1023px)
+                            font-size: 1.3rem
+
+                        @media (any-hover: hover)
+                            &:hover
+                                &::after
+                                    transform: scaleX(1)
+
+.submenu
+    // position: static
+    &.js-submenu-open
+        .submenu__wrapper
+            pointer-events: all
+            opacity: 1
+            transform: translateY(0)
+            visibility: visible
+        >a
+            &:after
+                transform: scaleX(1)
+    &--big
+        &.js-submenu-open
+            &:before
+                content: ''
+                position: fixed
+                top: 0
+                left: 0
+                width: 100%
+                height: 8rem
+                background-color: $colorBlack
+                z-index: 2
+                @media (max-width: 1023px)
+                    height: 5rem
+                @media (max-width: 480px)
+                    display: none
+    &:not(.submenu--big)
+        position: relative
+        .submenu__wrapper
+            padding: 0
+            width: auto
+            overflow: visible
+            padding: 8rem 0 3rem
+            @media (max-width: 1023px)
+                padding: 5rem 0 3rem
+            &:before
+                display: none
+            ul
+                &:before
+                    content: ''
+                    position: absolute
+                    top: 0
+                    left: -3.3rem
+                    width: calc( 100% + 6.6rem )
+                    height: 100%
+                    background-color: $colorBlack
+                    z-index: 0
+            li
+                white-space: nowrap
+                position: relative
+                z-index: 1
+                margin: 0 0 2rem 0
+                &:last-child
+                    margin: 0
+                @media (max-width: 720px)
+                    white-space: normal
+            a
+                font-weight: 400
+    &__wrapper
+        background-color: $colorBlack
+        position: absolute
+        width: 100%
+        padding: 13.5rem 0 0
+        top: 0
+        left: 0
+        z-index: 1
+        pointer-events: none
+        visibility: hidden
+        opacity: 0
+        transition: opacity 0.5s, transform 0.5s, visibility .5s
+        transform: translateY(-30px)
+        overflow: auto
+        max-height: 85vh
+        @media (max-width: 1023px)
+            padding: 8rem 0 3rem
+    &__step-back
+        background-color: transparent
+        width: 2.2rem
+        height: 2.2rem
+        margin: 0 1.6rem 2rem
+        display: block
+        position: relative
+        z-index: 2
+        @media (min-width: 481px)
+            display: none
+        img,svg
+            width: 100%
+            height: 100%
+
+.sublist
+    position: relative
+    min-height: 48rem
+    padding-bottom: 3rem
+    @media (max-width: 480px)
+        min-height: auto
+    &__item
+        padding: 0 0 2rem 0
+        max-width: 34rem
+        @media (max-width: 1199px)
+            max-width: 30rem
+        @media (max-width: 1023px)
+            max-width: 100%
+        &:last-child
+            padding: 0
+        &.js-sublist-open
+            .sublist__wrapper
+                pointer-events: all
+                opacity: 1
+            >a
+                &:after
+                    transform: scaleX(1)
+        >a
+            text-transform: uppercase
+            z-index: 1
+            @media (max-width: 1023px)
+                max-width: 37.5rem
+                width: 100%
+                position: relative
+                padding: 0 2.5rem 0 0
+                &._active
+                    &:before
+                        transform: translateY(-50%) rotate(0deg)
+                    &:after
+                        transform: scale(1) translateY(-50%) rotate(180deg)
+                &:before,
+                &:after
+                    content: ''
+                    position: absolute
+                    width: 1.4rem
+                    height: 0.2rem
+                    background-color: $colorWhite
+                    top: 50%
+                    right: 0
+                    transition: transform .5s
+                &:before
+                    transform: translateY(-50%) rotate(-90deg)
+                &::after
+                    left: auto
+                    transform: scale(1) translateY(-50%)
+            @media (max-width: 479px)
+                font-size: 1.5rem
+    &__wrapper
+        display: flex
+        justify-content: space-between
+        position: absolute
+        gap: 4rem
+        top: 0
+        left: 39rem
+        width: calc(100% - 43rem)
+        pointer-events: none
+        opacity: 0
+        transition: opacity 0.5s
+        padding: 0 0 3.5rem 0
+        @media (max-width: 1199px)
+            left: 35rem
+            width: calc(100% - 39rem)
+            gap: 1.5rem
+        @media (max-width: 1023px)
+            position: relative
+            display: none
+            width: 100%
+            left: 0
+            display: none
+            opacity: 1
+            padding: 2rem 0 1rem
+        &:before
+            content: ''
+            position: fixed
+            top: -3rem
+            left: -35rem
+            width: calc(100% + 35rem)
+            height: calc( 100% + 3rem)
+            z-index: 0
+        > ul
+            width: 33.333%
+            @media (max-width: 1023px)
+                width: 100%
+                margin: 0 0 2rem 0
+                &:last-child
+                    margin: 0
+            li
+                margin: 0 0 2rem 0
+                &:last-child
+                    margin: 0
+                a
+                    font-weight: 400
+                    transition: opacity 0.25s
+                    &:after
+                        display: none
+                    @media (any-hover: hover)
+                        &:hover
+                            opacity: 0.75
+                    @media (max-width: 479px)
+                        font-size: 1.4rem
+    &__image
+        width: 33.333%
+        min-width: 20rem
+        align-self: flex-start
+        @media (max-width: 1023px)
+            display: none
+        img
+            width: 100%
+            max-width: 100%
+
+.menu-burger
+    display: block
+    width: 1.8rem
+    height: 2.2rem
+    position: relative
+    z-index: 5
+    background-color: transparent
+    flex-shrink: 0
+    margin: 0 2.5rem 0 0
+    @media (max-width: 479px)
+        margin: 0 2.1rem 0 0
+    @media (min-width: 1401px)
+        display: none
+    &.js-menu-open
+        @media (max-width: 574px)
+            z-index: 7
+        &:before
+            transform: rotate(-45deg)
+            top: 1rem
+        &:after
+            transform: rotate(45deg)
+            bottom: 1rem
+    &:before,
+    &:after
+        content: ''
+        position: absolute
+        left: 0
+        width: 1.8rem
+        height: 0.2rem
+        background-color: $colorWhite
+        border-radius: 8rem
+        transition: transform .3s, top .3s, bottom .3s
+    &:before
+        top: 0.6rem
+    &:after
+        bottom: 0.6rem
+
+.menu-mobile
+    display: block
+    position: fixed
+    z-index: 1
     top: 0
     left: 0
     width: 100%
-    z-index: 10
-    &._scroll
-
-.menu
+    height: 100%
+    background-color: $colorBlack
+    padding: 12rem 0 3rem
+    pointer-events: none
+    transform: translateX(-100%)
+    transition: transform .7s
+    @media (max-width: 1023px)
+        padding: 8rem 0 3rem
+    @media (min-width: 1401px)
+        display: none
+    &.js-menu-open
+        pointer-events: all
+        transform: translateX(0)
+        overflow: auto
+        @media (max-width: 574px)
+            z-index: 6
+        @media (max-width: 480px)
+            overflow-x: hidden
+            overflow-y: scroll
+        &._lock
+            overflow: hidden
     &__list
-        
-        @media (min-width: 768px)
-            display: flex
-    &__body
-        position: fixed
+        display: block
+        > li
+            margin: 0 0 2rem 0
+            &:last-child
+                margin: 0
+            >a
+                font-size: 1.5rem
+        .submenu
+            &:not(.submenu--big)
+                .submenu__wrapper
+                    padding: 0
+                    ul
+                        padding: 2rem 0 3rem
+                    a
+                        @media (max-width: 479px)
+                            font-size: 1.4rem
+            &__wrapper
+                position: relative
+                display: none
+                pointer-events: all
+                opacity: 1
+                transform: translateY(0)
+                visibility: visible
+                ul
+                    &:before
+                        display: none
+        ._spoller
+            width: 100%
+            position: relative
+            transition: opacity .25s
+            display: block
+            &._active
+                opacity: 0.75
+                &:before
+                    transform: translateY(-50%) rotate(0deg)
+                &:after
+                    transform: scale(1) translateY(-50%) rotate(180deg)
+            &:before,
+            &:after
+                content: ''
+                position: absolute
+                width: 1.4rem
+                height: 0.2rem
+                background-color: $colorWhite
+                top: 50%
+                right: 0
+                transition: transform .5s
+            &:before
+                transform: translateY(-50%) rotate(-90deg)
+            &::after
+                left: auto
+                transform: scale(1) translateY(-50%)
+        .submenu--big
+            &.js-submenu-open
+                > a
+                    opacity: 0.75
+                .submenu__wrapper
+                    transform: translateX(0)
+                    pointer-events: all
+            >a
+                width: 100%
+                position: relative
+                transition: opacity .25s
+                &:before,
+                &:after
+                    content: ''
+                    position: absolute
+                    width: 1.1rem
+                    height: 0.2rem
+                    background-color: $colorWhite
+                    right: 0
+                    transition: transform .5s
+                &:before
+                    top: 0.5rem
+                    transform: rotate(45deg)
+                &::after
+                    bottom: 0.6rem
+                    left: auto
+                    transform: scale(1) rotate(-45deg)
+            .submenu__wrapper
+                position: fixed
+                top: 0
+                left: 0
+                width: 100%
+                height: 100vh
+                z-index: 8
+                max-height: 100vh
+                display: block
+                transform: translateX(200%)
+                transition: transform .5s, opacity 0.3s
+                pointer-events: none
+
+.search-header
+    flex: 1 1 auto
+    margin: 0 1.5rem
+    padding: 0 1.5rem
+    display: flex
+    align-items: center
+    position: relative
+    z-index: 5
+    height: 5.5rem
+    background-color: $colorBlack
+    transition: transform .5s
+    @media (max-width: 1023px)
+        justify-content: flex-end
+        margin: 0 0.9rem
+    @media (max-width: 699px)
+        padding: 0
+        margin: 0 2.4rem 0 0
+    @media (max-width: 479px)
+        margin: 0 2.4rem 0 0
+    &.js-search-open
+        z-index: 8
+        .search-header
+            &__content
+                @media (max-width: 699px)
+                    transform: translateY(0)
+                    pointer-events: all
+                    opacity: 1
+            &__form
+                display: block
+                @media (max-width: 699px)
+                    display: flex
+            &__result
+                display: block
+            &__icon
+                &--close
+                    pointer-events: all
+                    width: 2.4rem
+                &--trigger
+                    pointer-events: none
+                    opacity: 0
+    &__icon
+        background-color: transparent
+        width: 2.4rem
+        height: 2.4rem
         z-index: 3
+        position: relative
+        flex-shrink: 0
+        @media (any-hover: hover)
+            &:hover
+                img,svg
+                    opacity: 0.75
+        @media (max-width: 574px)
+            width: 2.2rem
+            height: 2.2rem
+        img,svg
+            width: 100%
+            height: 100%
+            transition: opacity .25s
+        &--search
+            position: absolute
+            top: 50%
+            left: 1.5rem
+            transform: translateY(-50%)
+            flex-shrink: 0
+            z-index: 4
+            @media (max-width: 699px)
+                position: relative
+                top: 0
+                transform: translateY(0)
+                left: 0
+                margin: 0 1.5rem 0 0
+        &--close
+            pointer-events: none
+            width: 0
+            @media (max-width: 699px)
+                width: 2.4rem
+                height: 2.4rem
+                position: absolute
+                right: 2.4rem
+                top: 1.5rem
+            @media (max-width: 574px)
+                right: 1.6rem
+    &__content
+        height: 100%
+        flex: 1 1 auto
+        display: flex
+        align-items: center
+        z-index: 4
+        @media (max-width: 699px)
+            position: fixed
+            top: 0
+            left: 0
+            width: 100%
+            margin: 0
+            height: auto
+            align-items: flex-start
+            padding: 0 2.4rem
+            background-color: $colorBlack
+            transform: translateY(-120%)
+            opacity: 0
+            pointer-events: none
+            transition: transform .5s, opacity .5s
+        @media (max-width: 574px)
+            padding: 0 1.6rem
+    &__wrapper
+        flex: 1 1 auto
+    &__form
+        display: none
+        height: 100%
+        margin: 0 1.5rem
+        @media (max-width: 699px)
+            display: flex
+            align-items: center
+            height: 5.6rem
+            margin: 3.5rem 0 0.2rem
+    &__border
+        position: absolute
         top: 0
         left: 0
         width: 100%
         height: 100%
-        opacity: 0
-        visibility: hidden
-        transition: all 0.5s 0.5s
-        display: block
-        opacity: 0
-        visibility: hidden
-        &._active
-            opacity: 1
-            visibility: visible
-            overflow-y: scroll
-            overflow-x: hidden
-            transition: all 1s
-
-    &__link
-
-//====================================================================================================
-
-//Burger
-.icon-menu
-    display: block
-    position: relative
-    width: 30px
-    height: 22px
-    cursor: pointer
-    z-index: 11
-    @media (max-width: 479px)
-        width: 29px
-
-    span
-        transition: all 0.3s ease 0s
-        top: calc(50% - 2px)
-        left: 0px
+    &__result
+        display: none
         position: absolute
+        top: 100%
+        left: 0
         width: 100%
-        height: 3px
-        background-color: #fff
-        &:first-child
-            top: 0px
-
-        &:last-child
-            top: auto
-            bottom: 0px
-
-    &._active
-        span
-            transform: scale(0)
-            &:first-child
-                transform: rotate(-45deg)
-                top: calc(50% - 2px)
-
-            &:last-child
-                transform: rotate(45deg)
-                bottom: calc(50% - 1px)
+        background-color: $colorWhite
+        max-height: 50vh
+        overflow: auto
+        outline: 1px solid #797979
+        @media (max-width: 699px)
+            display: block
+            top: 0
+            position: relative
+            outline: none
+            background-color: $colorBlack
+            width: 100%
+            max-height: 50vh
+        @media (min-width: 700px)
+            scrollbar-width: thin
+            scrollbar-color: $colorBlack transparent
+            &::-webkit-scrollbar
+                width: 0.8rem
+            &::-webkit-scrollbar-track
+                background: transparent
+            &::-webkit-scrollbar-thumb
+                background: $colorBlack
+                border-radius: 0.5rem
+                border: solid 0.5rem $colorBlack
+        ul
+            padding: 0.5rem 0
+        a
+            color: #A5A5A5
+            display: block
+            padding: 1rem 1.5rem
+            transition: color .25s, background-color .25s
+            @media (max-width: 699px)
+                color: $colorWhite
+                padding: 1rem 0
+            @media (max-width: 479px)
+                font-size: 1.4rem
+            @media (any-hover: hover)
+                &:hover
+                    color: $colorBlack
+                    background-color: #F8F8F8
+    label
+        display: block
+        width: 100%
+        height: 100%
+        @media (max-width: 699px)
+            position: relative
+    &__placeholder
+        position: absolute
+        top: 0
+        transform: translateY(1.7rem)
+        left: 5.3rem
+        color: #797979
+        letter-spacing: 0.5px
+        transition: transform .5s, font-size .5s
+        @media (max-width: 699px)
+            left: 0
+        @media (max-width: 479px)
+            font-size: 1.4rem
+    input
+        display: block
+        background-color: transparent
+        position: relative
+        z-index: 2
+        width: 100%
+        height: 100%
+        font-size: 1.6rem
+        color: $colorWhite
+        padding: 1.6rem 0 0
+        @media (max-width: 479px)
+            font-size: 1.4rem
+        &:focus
+            ~.search-header__border
+                border: solid $colorWhite
+                border-width: 1px
+                @media (max-width: 699px)
+                    border-width: 0 0 1px 0
+            ~.search-header__placeholder
+                transform: translateY(0.8rem)
+                font-size: 1.2rem
+    input[type="search"]::-webkit-search-cancel-button
+        display: none

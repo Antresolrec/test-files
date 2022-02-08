@@ -50,7 +50,7 @@ import './modules/scroll';
 // import './modules/quiz';
 
 // // динамический адаптив элементов (перенос в другое место на брейкпоинтах)
-// import './modules/dynamic_adapt';
+import './modules/dynamic_adapt';
 
 // бтн-ховер
 import './modules/btn-effect';
