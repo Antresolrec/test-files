@@ -18,7 +18,7 @@ class FilesUploader {
   }
 
   getFilelist() {
-    const fileList = new ClipboardEvent('').clipboardData || new DataTransfer();
+    const fileList = new DataTransfer();
 
     this.files.forEach((file) => {
       fileList.items.add(file);
