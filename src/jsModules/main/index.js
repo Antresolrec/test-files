@@ -58,3 +58,7 @@ import './modules/btn-effect';
 import './modules/tabs';
 
 import './modules/add-block';
+
+import './modules/canvas';
+
+import './modules/file-img-uploader';
