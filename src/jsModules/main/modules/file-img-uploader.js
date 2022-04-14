@@ -18,7 +18,7 @@ class FilesUploader {
   }
 
   getFilelist() {
-    const fileList = new DataTransfer();
+    const fileList = new ClipboardEvent('').clipboardData || new DataTransfer();
 
     this.files.forEach((file) => {
       fileList.items.add(file);
@@ -39,9 +39,9 @@ class FilesUploader {
     this.input.value = '';
     this.input.files = this.getFilelist();
     this.input.customFiles = this.files;
-    // if (this.input.value === '') {
-    //   this.input.closest('label').classList.remove('js-move-label--active');
-    // }
+    if (this.input.value === '') {
+      this.input.closest('label').classList.remove('js-move-label--active');
+    }
     if (this.maxFiles) {
       if (this.input.files.length >= this.maxFiles) {
         this.filesContainer.classList.add('max');
